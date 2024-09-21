@@ -19,7 +19,7 @@ export default function TypeCell({ tabIndex }) {
     >
       <h3 className="p-2">{selectedOption.name}</h3>
       {openModal && (
-        <ul className="popup absolute top-full left-1/2 -translate-x-1/2 grid gap-2 p-6 shadow-xl whitespace-nowrap rounded-md bg-white z-20">
+        <ul className="popup absolute top-full left-1/2 -translate-x-1/2 grid gap-2 p-6 shadow-xl whitespace-nowrap rounded-md bg-white z-50">
           {typeColData.map((col) => (
             <>
               <li
