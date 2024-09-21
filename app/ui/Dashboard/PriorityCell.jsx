@@ -1,7 +1,7 @@
 "use client";
 
-import { priorityColData } from "@/app/mock-data/table";
 import React, { useState } from "react";
+import { priorityColData } from "@/app/mock-data/table";
 
 export default function PriorityCell({ tabIndex }) {
   const [openModal, setOpenModal] = useState(false);
@@ -23,6 +23,7 @@ export default function PriorityCell({ tabIndex }) {
           {priorityColData.map((col) => (
             <>
               <li
+                key={col.id}
                 className="h-8 w-36 py-1.5 rounded-sm text-center"
                 style={{ backgroundColor: col.bgColor }}
                 onClick={() => setSelectedOption(col)}

@@ -3,7 +3,7 @@ import {
   DottedIcon,
   DownArrowSolidIcon,
   UpArrowSolidIcon,
-} from "@/app/public/icons/icon";
+} from "@/app/ui/Icons/Icon";
 
 export default function TableHead({
   colName,

@@ -1,4 +1,4 @@
-import { HappyDayIcon } from "../public/icons/icon";
+import { HappyDayIcon } from "@/app/ui/Icons/Icon";
 
 export const navItemsArr = [
   {

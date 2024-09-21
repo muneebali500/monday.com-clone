@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LogoIcon, DiamondIcon } from "@/app/public/icons/icon";
+import { LogoIcon, DiamondIcon } from "@/app/ui/Icons/Icon";
 import { headerIcons } from "@/app/mock-data/icons";
 import mondayLogo from "@/app/public/images/monday-logo.png";
 import userPlaceholderPhoto from "@/app/public/images/user-placeholder-photo.png";

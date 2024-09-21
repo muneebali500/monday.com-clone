@@ -17,7 +17,7 @@ import {
   PlugIcon,
   SortIcon,
   StartIcon,
-} from "@/app/public/icons/icon";
+} from "@/app/ui/Icons/Icon";
 import slackIcon from "@/app/public/images/slack-icon.png";
 import jiraIcon from "@/app/public/images/jira-icon.png";
 import TooltipIcon from "@/app/ui/Tooltip/TooltipIcon";
@@ -205,7 +205,7 @@ export default function Dashboard() {
 
           <div className="btn-group flex gap-2 text-sm justify-between items-center mb-1 *:p-2 *:rounded-normal">
             <button className="flex gap-1 hover:bg-hoverItem">
-              Jan 2,'23 - Jan 15,'23
+              Jan 2,&apos;23 - Jan 15,&apos;23
             </button>
             <button className="flex gap-1 border opacity-50" disabled>
               Burndown

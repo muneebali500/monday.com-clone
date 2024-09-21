@@ -1,4 +1,8 @@
-import React from "react";
+import {
+  RightArrowIcon,
+  MagnifyingPlusIcon,
+  DottedIcon,
+} from "@/app/ui/Icons/Icon";
 
 export default function TaskCell({ tabIndex }) {
   return (

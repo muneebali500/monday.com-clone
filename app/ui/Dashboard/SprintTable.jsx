@@ -16,7 +16,7 @@ import {
   PlusIcon,
   RightArrowIcon,
   UpArrowSolidIcon,
-} from "@/app/public/icons/icon";
+} from "@/app/ui/Icons/Icon";
 
 export default function SprintTable() {
   const [taskInput, setTaskInput] = useState("");
@@ -49,8 +49,8 @@ export default function SprintTable() {
       e.preventDefault();
 
       const currentValue = e.target.innerText;
-      setTasks((prev) => [...prev, currentValue]);
-      setTaskInput("");
+      // setTasks((prev) => [...prev, currentValue]);
+      // setTaskInput("");
     }
   };
 
@@ -85,8 +85,11 @@ export default function SprintTable() {
               {tableColData.map(
                 (col) =>
                   col.checked && (
-                    <ul className="flex *:border-y *:[&:not(:last-child)]:border-r bg-white">
-                      <TableHead {...col} key={col.id} />
+                    <ul
+                      className="flex *:border-y *:[&:not(:last-child)]:border-r bg-white"
+                      key={col.id}
+                    >
+                      <TableHead {...col} />
                     </ul>
                   )
               )}
@@ -111,10 +114,10 @@ export default function SprintTable() {
 
               {addColModal && (
                 <ul className="popup absolute top-full right-5 grid gap-2 p-5 shadow-xl whitespace-nowrap rounded-md bg-white z-20">
-                  {tableColData.map((col, index) => (
+                  {tableColData.map((col) => (
                     <>
                       <li
-                        key={index}
+                        key={col.id}
                         className="h-8 w-36 py-1.5 flex items-center hover:bg-hoverItem p-2 rounded"
                         onClick={() => handleColumns(col.id)}
                       >
@@ -122,7 +125,6 @@ export default function SprintTable() {
                           type="checkbox"
                           checked={col.checked}
                           className="mr-2"
-                          // onChange={(e) => handleColumns(col.id)}
                         />
                         {col.colName}
                       </li>
@@ -229,6 +231,7 @@ export default function SprintTable() {
                   col.checked && (
                     <div
                       className={`p-1.5 flex justify-center first:rounded-bl-md items-center border-y border-r-0 border-l hover:bg-[#f5f6f8] ${col.colStyle}`}
+                      key={col.id}
                     ></div>
                   )
               )}

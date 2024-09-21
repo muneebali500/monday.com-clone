@@ -21,7 +21,7 @@ import {
   SprintsIcon,
   StarIcon,
   WorkIcon,
-} from "@/app/public/icons/icon";
+} from "@/app/ui/Icons/Icon";
 import TooltipIcon from "../Tooltip/TooltipIcon";
 import NavPopup from "../Popups/NavPopup";
 import Link from "next/link";

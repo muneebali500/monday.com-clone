@@ -6,7 +6,7 @@ import {
   MagnifyingGalssIcon,
   HelpIcon,
   ProductsSwitcherIcon,
-} from "@/app/public/icons/icon";
+} from "@/app/ui/Icons/Icon";
 
 export const headerIcons = [
   {
