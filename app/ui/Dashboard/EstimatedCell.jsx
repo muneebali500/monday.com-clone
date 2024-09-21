@@ -21,7 +21,7 @@ export default function EstimatedCell() {
 
   return (
     <li
-      className="group/parent p-1 flex justify-center items-center min-w-36 text-sm border-r border-b"
+      className="group/parent px-1 flex justify-center items-center min-w-36 text-sm border-r border-b"
       onMouseEnter={() => handleMouseMove("enter")}
       onMouseLeave={() => handleMouseMove("leave")}
     >
@@ -32,7 +32,7 @@ export default function EstimatedCell() {
       >
         <input
           type="number"
-          className="w-full rounded focus:outline-none focus:ring-1 text-center text-sm"
+          className="w-full rounded p-1 focus:outline-none focus:ring-1 text-center text-sm"
           value={estimatedValue}
           onFocus={(e) => {
             setEstimatedValue(estimatedValue || 0);

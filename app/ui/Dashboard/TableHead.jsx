@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
   DottedIcon,
   DownArrowSolidIcon,
@@ -13,6 +15,8 @@ export default function TableHead({
   dottedIcon,
   id,
 }) {
+  const [focusState, setFocusState] = useState(false);
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -25,13 +29,15 @@ export default function TableHead({
   return (
     <li
       className={`tab-cell group/item relative p-1.5 flex justify-center items-center hover:bg-[#f5f6f8] ${colStyle}`}
+      role="input"
     >
       <h6
         className={`peer transition ${
           id === 1 ? "group-hover/item:-translate-x-2" : ""
         } whitespace-nowrap overflow-hidden px-1 py-0.5 hover:border rounded-md focus:w-full focus:border outline-none focus:group-hover/item:translate-x-0 ${headingStyle}`}
-        contentEditable
+        role="input"
         onKeyDown={handleKeyDown}
+        onClick={() => setFocusState(true)}
       >
         {colName}
       </h6>

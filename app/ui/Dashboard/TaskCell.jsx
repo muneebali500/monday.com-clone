@@ -8,7 +8,7 @@ export default function TaskCell({ tabIndex }) {
   return (
     <li
       tabIndex={tabIndex}
-      className="group/parent flex min-w-[25rem] border-r border-b"
+      className="group/parent flex min-w-[25rem] border-r border-b px-2"
     >
       <div className="px-2 flex justify-center items-center">
         <input type="checkbox" />

@@ -45,23 +45,23 @@ export default function Dashboard() {
               <PlugIcon />
               <span>Integrate</span>
               <div className="flex">
-                <figure className="relative flex justify-center items-center opacity-35 -mr-2">
+                <figure className="relative flex justify-center items-center opacity-40 -mr-2">
                   <HexagonalIcon />
                   <Image
                     src={slackIcon}
                     alt="Slack Icon"
                     className="absolute"
-                    width={12}
+                    width={15}
                     height="auto"
                   />
                 </figure>
-                <figure className="relative flex justify-center items-center opacity-35">
+                <figure className="relative flex justify-center items-center opacity-40">
                   <HexagonalIcon />
                   <Image
                     src={jiraIcon}
                     alt="jira Icon"
                     className="absolute"
-                    width={12}
+                    width={15}
                     height="auto"
                   />
                 </figure>
@@ -73,13 +73,14 @@ export default function Dashboard() {
               </span>
               <span>Automate / 1</span>
             </li>
-            <li className="flex items-center text-sm border px-2 rounded-normal hover:bg-hoverItem">
+            <li className="flex items-center text-sm border px-2 rounded hover:bg-hoverItem">
               <button>
                 <span>Invite / 1</span>
               </button>
             </li>
-            <li className="flex items-center">
-              <TooltipIcon icon={<DottedIcon />} tooltipText="Options" />
+            <li className="group relative flex items-center hover:bg-hoverItem px-2 rounded">
+              <DottedIcon />
+              <Tooltip tooltipText="Options" tooltipPosition="bottom" />
             </li>
           </ul>
         </div>
@@ -223,7 +224,11 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <SprintTable />
+      <div className="tables-container h-[calc(100vh-25rem)]">
+        <div className="main-table">
+          <SprintTable />
+        </div>
+      </div>
     </main>
   );
 }

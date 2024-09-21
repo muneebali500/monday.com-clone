@@ -134,7 +134,7 @@ export default function NavAside() {
               <DottedIcon />
 
               {showPopup && (
-                <ul className="bg-white p-2 text-sm rounded-normal z-40 absolute left-9 top-0 shadow-lg text-nowrap">
+                <ul className="bg-white p-2 text-sm rounded-normal z-40 absolute left-9 top-0 shadow-2xl text-nowrap">
                   {navItemPopupArr.map((item) => (
                     <NavPopup key={item.id} {...item} />
                   ))}

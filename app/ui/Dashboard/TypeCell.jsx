@@ -10,7 +10,7 @@ export default function TypeCell({ tabIndex }) {
   return (
     <li
       tabIndex={tabIndex}
-      className="group/parent relative flex justify-center items-center bg-blue-800 text-white min-w-36 border-r border-b"
+      className="group/parent relative flex justify-center items-center bg-blue-800 text-white min-w-36 border-r border-b px-2"
       style={{
         backgroundColor: selectedOption.bgColor || "#C4C4C4",
       }}
