@@ -39,7 +39,7 @@ export default function EditableElement({ textContent, headingStyle, id }) {
           onBlur={handleBlur}
           onKeyPress={handleKeyPress}
           autoFocus
-          className="w-full px-1 peer"
+          className="w-full px-1 peer rounded focus:outline-none focus:ring-1"
         />
       ) : (
         <h6

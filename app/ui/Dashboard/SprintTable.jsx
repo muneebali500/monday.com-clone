@@ -46,20 +46,20 @@ export default function SprintTable({ borderLeftClr }) {
     );
   }
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
+  // const handleKeyDown = (e) => {
+  //   if (e.key === "Enter") {
+  //     e.preventDefault();
 
-      const currentValue = e.target.innerText;
-      // setTasks((prev) => [...prev, currentValue]);
-      // setTaskInput("");
-    }
-  };
+  //     const currentValue = e.target.innerText;
+  //   }
+  // };
 
   return (
     <div className="sprint-table">
       {/* table header row */}
-      <ul className="table-head text-sm rounded-tl-md flex h-9 sticky top-[12.2rem] z-30 bg-white">
+      <ul
+        className={`table-head text-sm rounded-tl-md flex h-9 bg-white sticky top-[12.2rem] z-30`}
+      >
         <li className="bg-white h-full min-w-10 sticky left-0 top-10 z-20"></li>
         {/* first row first column */}
         <li
