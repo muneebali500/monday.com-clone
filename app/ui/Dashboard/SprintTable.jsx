@@ -17,8 +17,10 @@ import {
   RightArrowIcon,
   UpArrowSolidIcon,
 } from "@/app/ui/Icons/Icon";
+import EditableElement from "./EditableElement";
+import ActualSPCell from "./ActualSPCell";
 
-export default function SprintTable() {
+export default function SprintTable({ borderLeftClr }) {
   const [taskInput, setTaskInput] = useState("");
   const [tasks, setTasks] = useState([
     "Create new dashboard",
@@ -60,7 +62,11 @@ export default function SprintTable() {
       <ul className="table-head text-sm rounded-tl-md flex h-9 sticky top-[12.2rem] z-30 bg-white">
         <li className="bg-white h-full min-w-10 sticky left-0 top-10 z-20"></li>
         {/* first row first column */}
-        <li className="flex rounded-tl-md border border-l-[6px] border-l-green-800 sticky left-10 top-10 min-w-[24rem] bg-white z-20">
+        <li
+          className={`flex rounded-tl-md border border-l-[6px] ${
+            borderLeftClr || "border-l-green-800"
+          }  sticky left-10 top-10 min-w-[24rem] bg-white z-20`}
+        >
           <div tabIndex={0} className="p-2 flex justify-center items-center">
             <input type="checkbox" />
           </div>
@@ -142,7 +148,11 @@ export default function SprintTable() {
             </span>
           </li>
           {/* left column */}
-          <li className="flex border-b border-r border-l-[6px] border-l-green-800 sticky left-10 bg-white z-10 min-w-[24rem]">
+          <li
+            className={`flex border-b border-r ${
+              borderLeftClr || "border-l-green-800"
+            } border-l-[6px] sticky left-10 bg-white z-10 min-w-[24rem] overflow-hidden`}
+          >
             <div
               tabIndex={index}
               className="px-2 flex justify-center items-center"
@@ -150,19 +160,13 @@ export default function SprintTable() {
               <input type="checkbox" />
             </div>
 
-            <div tabIndex={index} className="group/parent flex-1 border-l">
+            <div tabIndex={index} className="group/parent flex-1 border-l flex">
               <div className="group/head relative flex-1 flex items-center pl-2 h-full">
                 <span className="opacity-0 group-hover/head:opacity-100">
                   <RightArrowIcon className="fill-slate-400 w-1.5" />
                 </span>
-                <div className="flex-1 ml-2 flex items-center border-r h-full">
-                  <h6
-                    className={`whitespace-nowrap overflow-hidden px-1 py-0.5 hover:border rounded-md focus:w-full focus:border outline-none`}
-                    contentEditable
-                    onKeyDown={handleKeyDown}
-                  >
-                    {task}
-                  </h6>
+                <div className="flex-1 ml-2 flex items-center border-r h-full w-1 pr-2">
+                  <EditableElement textContent={task} />
                 </div>
                 <span className="px-4">
                   <MagnifyingPlusIcon className="fill-hoverItem" />
@@ -182,9 +186,7 @@ export default function SprintTable() {
 
           <EstimatedCell />
 
-          <li className="group/parent relative flex justify-center items-center min-w-36 border-r border-b">
-            <div className="p-2"></div>
-          </li>
+          <ActualSPCell />
 
           <li className="group/parent relative flex justify-center items-center min-w-20 border-r-0 border-b">
             <div className="p-2"></div>

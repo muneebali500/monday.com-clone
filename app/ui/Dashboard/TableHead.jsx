@@ -1,11 +1,9 @@
-"use client";
-
-import React, { useState } from "react";
 import {
   DottedIcon,
   DownArrowSolidIcon,
   UpArrowSolidIcon,
 } from "@/app/ui/Icons/Icon";
+import EditableElement from "./EditableElement";
 
 export default function TableHead({
   colName,
@@ -15,23 +13,20 @@ export default function TableHead({
   dottedIcon,
   id,
 }) {
-  const [focusState, setFocusState] = useState(false);
+  // const handleKeyDown = (e) => {
+  //   if (e.key === "Enter") {
+  //     e.preventDefault();
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-
-      const currentValue = e.target.innerText;
-      console.log("Submitted value:", currentValue);
-    }
-  };
+  //     const currentValue = e.target.innerText;
+  //     console.log("Submitted value:", currentValue);
+  //   }
+  // };
 
   return (
     <li
       className={`tab-cell group/item relative p-1.5 flex justify-center items-center hover:bg-[#f5f6f8] ${colStyle}`}
-      role="input"
     >
-      <h6
+      {/* <h6
         className={`peer transition ${
           id === 1 ? "group-hover/item:-translate-x-2" : ""
         } whitespace-nowrap overflow-hidden px-1 py-0.5 hover:border rounded-md focus:w-full focus:border outline-none focus:group-hover/item:translate-x-0 ${headingStyle}`}
@@ -40,7 +35,14 @@ export default function TableHead({
         onClick={() => setFocusState(true)}
       >
         {colName}
-      </h6>
+      </h6> */}
+
+      <EditableElement
+        textContent={colName}
+        headingStyle={headingStyle}
+        id={id}
+      />
+
       <span className="absolute right-2 opacity-0 transition rounded-normal p-0.5 cursor-pointer hover:bg-gray-300 group-hover/item:opacity-100 peer-focus:hidden">
         <DottedIcon className="w-4 h-4" />
       </span>

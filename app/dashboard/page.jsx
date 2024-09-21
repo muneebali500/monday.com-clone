@@ -2,6 +2,7 @@
 
 import React from "react";
 
+import { poppins } from "@/app/public/fonts/fonts";
 import Image from "next/image";
 import {
   BotIcon,
@@ -20,9 +21,6 @@ import {
 } from "@/app/ui/Icons/Icon";
 import slackIcon from "@/app/public/images/slack-icon.png";
 import jiraIcon from "@/app/public/images/jira-icon.png";
-import TooltipIcon from "@/app/ui/Tooltip/TooltipIcon";
-
-import { poppins } from "@/app/public/fonts/fonts";
 import SprintTable from "../ui/Dashboard/SprintTable";
 import Tooltip from "../ui/Tooltip/Tooltip";
 
@@ -227,6 +225,31 @@ export default function Dashboard() {
       <div className="tables-container h-[calc(100vh-25rem)]">
         <div className="main-table">
           <SprintTable />
+
+          <div className="group/parent px-10 heading-row flex justify-between items-center mt-10 mb-1.5">
+            <div className="sticky left-10">
+              <span className="absolute -left-7 top-1/2 -translate-y-1/2 hidden group-hover/parent:inline-block">
+                <DottedIcon />
+              </span>
+
+              <div className="group/sub flex-1 flex gap-2 items-center px-3">
+                <span>
+                  <DownArrowIcon />
+                </span>
+                <h3
+                  className={`text-lg opacity-30 font-semibold sticky left-10 ${poppins.className}`}
+                >
+                  Backlog
+                </h3>
+                <span className="text-sm hidden group-hover/sub:inline-block">
+                  3 Tasks
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* just for view purposes */}
+          <SprintTable borderLeftClr="#C4C4C4" />
         </div>
       </div>
     </main>
