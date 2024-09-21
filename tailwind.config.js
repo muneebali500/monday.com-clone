@@ -10,6 +10,17 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        main: "var(--primary)",
+        btnHover: "var(--hover-clr)",
+        selected: "var(--selected-clr)",
+        hoverItem: "var(--bg-hover)",
+      },
+      textColor: {
+        primary: "var(--primary-text-color)",
+        secondary: "#676879",
+      },
+      borderRadius: {
+        normal: "var(--rounded-normal)",
       },
     },
   },

@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #e2f0e7;
   --foreground: #171717;
+  --primary: #00854d;
+  --hover-clr: #025231;
+  --selected-clr: #c6e9d;
+  --primary-text-color: #323338;
+  --rounded-normal: 4px;
+  --bg-hover: #6768791a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,13 +21,43 @@
 }
 
 body {
-  color: var(--foreground);
+  color: var(--primary-text-color);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
+  line-height: 1.5;
+  overflow: hidden;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.container {
+  max-width: 97%;
+  margin: 0 auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c3c6d4;
+  border-radius: 10px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
