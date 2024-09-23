@@ -16,7 +16,7 @@ export default function TooltipIcon({
     >
       <div className="relative">
         {iconTop === 1 && (
-          <span className="absolute -top-2.5 -right-2.5 bg-white rounded-full px-[6px] text-[12px] flex justify-center items-center">
+          <span className="absolute -top-2.5 -right-2.5 bg-white rounded-full px-1.5 text-xs flex justify-center items-center">
             1
           </span>
         )}

@@ -61,3 +61,33 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+@media only screen and (max-width: 1279px) {
+  html {
+    font-size: 80%;
+  }
+
+  svg,
+  img {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  html {
+    font-size: 30%;
+  }
+
+  svg,
+  img {
+    width: 5px;
+    height: 5px;
+  }
+}

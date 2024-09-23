@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { statusColData } from "@/app/mock-data/table";
 
-export default function StatusCell({ tabIndex }) {
+export default function StatusCell({ tabIndex, value }) {
   const [openModal, setOpenModal] = useState(false);
   const [selectedOption, setSelectedOption] = useState({});
 

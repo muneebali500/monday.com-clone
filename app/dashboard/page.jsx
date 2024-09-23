@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 import { poppins } from "@/app/public/fonts/fonts";
 import Image from "next/image";
@@ -23,37 +23,19 @@ import slackIcon from "@/app/public/images/slack-icon.png";
 import jiraIcon from "@/app/public/images/jira-icon.png";
 import SprintTable from "../ui/Dashboard/SprintTable";
 import Tooltip from "../ui/Tooltip/Tooltip";
+import TableHeaderRow from "../ui/Dashboard/TableHeaderRow";
 
 export default function Dashboard() {
-  // const mainRef = useRef();
-  // const [scrollPosition, setScrollPosition] = useState(null);
-
-  // useEffect(() => {
-  //   mainRef.current.addEventListener("scroll", (e) => {
-  //     let horizontal = e.currentTarget.scrollLeft;
-  //     let vertical = e.currentTarget.scrollTop;
-  //     if (horizontal) {
-  //       setScrollPosition("h");
-  //     } else if (vertical) {
-  //       setScrollPosition("v");
-  //       console.log("vertical");
-  //     }
-  //   });
-  // });
-
   return (
-    <main
-      // ref={mainRef}
-      className="content w-[calc(100vw-256px)]  bg-white h-full rounded-tl-lg overflow-auto"
-    >
-      <div className="fixed-vertical sticky top-0 left-0 z-20 bg-white pt-4">
+    <main className="content flex-1 bg-white h-full rounded-tl-lg overflow-auto">
+      <div className="fixed-vertical sticky top-0 left-0 z-30 bg-white pt-4">
         <div className="flex justify-between items-center mb-2 px-10">
           <h2
             className={`text-2xl font-light flex gap-1.5 items-center ${poppins.className}`}
           >
             Happy Day
             <span>
-              <DownArrowIcon style={{ width: "24px", height: "24px" }} />
+              <DownArrowIcon className="w-6 h-6" />
             </span>
           </h2>
 
@@ -241,8 +223,12 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="tables-container">
+      {/* table header row */}
+
+      <div className="tables-data-container">
         <div className="main-table pb-2 relative">
+          <TableHeaderRow zIndex="z-30" />
+
           <SprintTable />
 
           <div className="group/parent px-10 heading-row flex justify-between items-center mt-10 mb-1.5">

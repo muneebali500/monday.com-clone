@@ -47,7 +47,7 @@ export default function EditableElement({ textContent, headingStyle, id }) {
           onClick={() => setIsEditing(true)}
           className={`peer transition ${
             id === 1 ? "group-hover/item:-translate-x-2" : ""
-          } whitespace-nowrap overflow-hidden px-1 py-0.5 hover:border rounded-md focus:w-full focus:border outline-none focus:group-hover/item:translate-x-0 ${headingStyle}`}
+          } whitespace-nowrap overflow-hidden px-1 py-0.5 hover:border rounded-md focus:w-full focus:border outline-none focus:group-hover/item:translate-x-0 cursor-text ${headingStyle}`}
         >
           {text}
         </h6>

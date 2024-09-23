@@ -11,14 +11,12 @@ import OwnerCell from "./OwnerCell";
 import EstimatedCell from "./EstimatedCell";
 import {
   DottedIcon,
-  DownArrowSolidIcon,
   MagnifyingPlusIcon,
-  PlusIcon,
   RightArrowIcon,
-  UpArrowSolidIcon,
 } from "@/app/ui/Icons/Icon";
 import EditableElement from "./EditableElement";
 import ActualSPCell from "./ActualSPCell";
+import TableHeaderRow from "./TableHeaderRow";
 
 export default function SprintTable({ borderLeftClr }) {
   const [taskInput, setTaskInput] = useState("");
@@ -28,7 +26,6 @@ export default function SprintTable({ borderLeftClr }) {
     "Perform optimization",
   ]);
   const [tableColData, setTableColData] = useState(tableColumnsData);
-  const [addColModal, setAddColModal] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -36,105 +33,11 @@ export default function SprintTable({ borderLeftClr }) {
     setTaskInput("");
   }
 
-  function handleColumns(id) {
-    setTableColData((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? { ...item, checked: item.checked ? false : true }
-          : item
-      )
-    );
-  }
-
-  // const handleKeyDown = (e) => {
-  //   if (e.key === "Enter") {
-  //     e.preventDefault();
-
-  //     const currentValue = e.target.innerText;
-  //   }
-  // };
-
   return (
     <div className="sprint-table">
       {/* table header row */}
-      <ul
-        className={`table-head text-sm rounded-tl-md flex h-9 bg-white sticky top-[12.2rem] z-30`}
-      >
-        <li className="bg-white h-full min-w-10 sticky left-0 top-10 z-20"></li>
-        {/* first row first column */}
-        <li
-          className={`flex rounded-tl-md border border-l-[6px] ${
-            borderLeftClr || "border-l-green-800"
-          }  sticky left-10 top-10 min-w-[24rem] bg-white z-20`}
-        >
-          <div tabIndex={0} className="p-2 flex justify-center items-center">
-            <input type="checkbox" />
-          </div>
 
-          <div tabIndex={1} className="flex flex-1 border-l">
-            <div className="group/head relative p-2 flex-1 flex justify-center items-center">
-              <h6>Task</h6>
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 p-1.5 rounded-full bg-white shadow-md flex-col gap-0 cursor-pointer hidden group-hover/head:flex hover:bg-btnHover group/sort">
-                <UpArrowSolidIcon className="-mb-2 group-hover/sort:fill-white" />
-                <DownArrowSolidIcon className="group-hover/sort:fill-white" />
-              </span>
-            </div>
-          </div>
-        </li>
-
-        {/* use table-head to add columns */}
-        <li className="flex">
-          {tableColData.map(
-            (col) =>
-              col.checked && (
-                <ul
-                  className="flex *:border-y *:[&:not(:last-child)]:border-r bg-white"
-                  key={col.id}
-                >
-                  <TableHead {...col} />
-                </ul>
-              )
-          )}
-        </li>
-
-        <li
-          tabIndex={0}
-          className="min-w-20 p-1.5 flex items-center hover:bg-[#f5f6f8] cursor-pointer border border-r-0 relative bg-white"
-          onClick={(e) => {
-            e.stopPropagation();
-            setAddColModal(!addColModal);
-          }}
-          onBlur={(e) => {
-            e.stopPropagation();
-            setAddColModal(false);
-          }}
-        >
-          <span className="">
-            <PlusIcon />
-          </span>
-
-          {addColModal && (
-            <ul className="popup absolute top-full right-5 grid gap-2 p-5 shadow-xl whitespace-nowrap rounded-md bg-white z-20">
-              {tableColData.map((col) => (
-                <>
-                  <li
-                    key={col.id}
-                    className="h-8 w-36 py-1.5 flex items-center hover:bg-hoverItem p-2 rounded"
-                    onClick={() => handleColumns(col.id)}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={col.checked}
-                      className="mr-2"
-                    />
-                    {col.colName}
-                  </li>
-                </>
-              ))}
-            </ul>
-          )}
-        </li>
-      </ul>
+      {borderLeftClr && <TableHeaderRow zIndex="z-20" />}
 
       {/* use table-body to add rows */}
       {tasks.map((task, index) => (
@@ -157,7 +60,7 @@ export default function SprintTable({ borderLeftClr }) {
               tabIndex={index}
               className="px-2 flex justify-center items-center"
             >
-              <input type="checkbox" />
+              <input type="checkbox" className="w-2 md:w-3.5" />
             </div>
 
             <div tabIndex={index} className="group/parent flex-1 border-l flex">
@@ -199,7 +102,7 @@ export default function SprintTable({ borderLeftClr }) {
         <li className="bg-white min-w-10 sticky left-0 top-10 z-20 -mt-1 h-10"></li>
         <li className="flex rounded-bl-md border-l-[6px] hover:border-l-green-800 sticky left-10 z-10 min-w-[24rem]">
           <div className="px-2 flex justify-center items-center">
-            <input type="checkbox" disabled />
+            <input type="checkbox" className="w-2 md:w-3.5" disabled />
           </div>
 
           <div className="flex min-w-36 bg-transparent">
