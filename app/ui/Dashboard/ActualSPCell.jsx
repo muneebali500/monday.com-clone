@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 
-export default function ActualSPCell() {
+export default function ActualCell() {
   const [isItemHovered, setIsItemHovered] = useState(false);
   const [focusState, setFocusState] = useState(false);
-  const [estimatedValue, setEstimatedValue] = useState("");
+  const [actualSPValue, setActualSPValue] = useState("");
 
   function handleMouseMove(mouseValue) {
-    if (estimatedValue !== "") {
+    if (actualSPValue !== "" || focusState) {
       return;
     } else {
       if (mouseValue === "enter") {
@@ -33,21 +33,26 @@ export default function ActualSPCell() {
         <input
           type="number"
           className="w-full rounded p-1 focus:outline-none focus:ring-1 text-center text-sm"
-          value={estimatedValue}
-          onFocus={(e) => {
-            setEstimatedValue(estimatedValue || 0);
+          value={actualSPValue}
+          onFocus={() => {
+            setActualSPValue(actualSPValue || 0);
             setIsItemHovered(true);
             setFocusState(true);
           }}
-          onFocusOut={() => setFocusState(false)}
-          onChange={(e) => setEstimatedValue(e.target.value)}
+          onBlur={() => {
+            setFocusState(false);
+            if (actualSPValue === "") {
+              setIsItemHovered(false);
+            }
+          }}
+          onChange={(e) => setActualSPValue(e.target.value)}
         />
-        {focusState && estimatedValue === "" ? (
+        {focusState || actualSPValue !== "" ? (
           ""
         ) : (
           <span
             className={`absolute bg-btnHover h-3 w-3 text-white ${
-              estimatedValue !== "" ? "hidden" : "flex"
+              isItemHovered ? "flex" : "hidden"
             } justify-center items-center rounded-full`}
           >
             +

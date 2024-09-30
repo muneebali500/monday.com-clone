@@ -1,7 +1,3 @@
-"use client";
-
-import React from "react";
-
 import { poppins } from "@/app/public/fonts/fonts";
 import Image from "next/image";
 import {
@@ -21,9 +17,9 @@ import {
 } from "@/app/ui/Icons/Icon";
 import slackIcon from "@/app/public/images/slack-icon.png";
 import jiraIcon from "@/app/public/images/jira-icon.png";
-import SprintTable from "../ui/Dashboard/SprintTable";
 import Tooltip from "../ui/Tooltip/Tooltip";
-import TableHeaderRow from "../ui/Dashboard/TableHeaderRow";
+import TablesWrapper from "../ui/Dashboard/TablesWrapper";
+import { tableRowsData } from "../mock-data/table";
 
 export default function Dashboard() {
   return (
@@ -223,40 +219,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* table header row */}
-
-      <div className="tables-data-container">
-        <div className="main-table pb-2 relative">
-          <TableHeaderRow zIndex="z-30" />
-
-          <SprintTable />
-
-          <div className="group/parent px-10 heading-row flex justify-between items-center mt-10 mb-1.5">
-            <div className="sticky left-10 top-0">
-              <span className="absolute -left-7 top-1/2 -translate-y-1/2 hidden group-hover/parent:inline-block">
-                <DottedIcon />
-              </span>
-
-              <div className="group/sub flex-1 flex gap-2 items-center px-3">
-                <span>
-                  <DownArrowIcon />
-                </span>
-                <h3
-                  className={`text-lg opacity-30 font-semibold sticky left-10 ${poppins.className}`}
-                >
-                  Backlog
-                </h3>
-                <span className="text-sm hidden group-hover/sub:inline-block">
-                  3 Tasks
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* just for view purposes */}
-          <SprintTable borderLeftClr="#C4C4C4" />
-        </div>
-      </div>
+      <TablesWrapper />
     </main>
   );
 }
